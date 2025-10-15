@@ -36,6 +36,7 @@ jobs:
 
     - id: install-cran-packages
       name: Install cran packages (NO CACHE FOUND)
+      if: steps.cache-setup.outputs.cache-hit != 'true'
       run: |
         install.packages(c("remotes", "pak"))
       shell: Rscript {0}
